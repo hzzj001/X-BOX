@@ -5,15 +5,15 @@ import com.github.tvbox.osc.ui.theme.GLASS_BACKDROP_BAND_MARGIN_DP
 
 object NavMetrics {
 
-    const val MARGIN_DP = 12
+    const val MARGIN_DP = 10
 
-    const val BAR_CROSS_DP = 64
+    const val BAR_CROSS_DP = 54
 
-    const val SLOT_MAIN_DP = 56
+    const val SLOT_MAIN_DP = 50
 
     const val FLOATING_OVERLAY_DP = BAR_CROSS_DP + MARGIN_DP
 
-    const val SURFACE_RAIL_WIDTH_DP = 80
+    const val SURFACE_RAIL_WIDTH_DP = 72
 
     const val BAND_EXTENT_DP = FLOATING_OVERLAY_DP + GLASS_BACKDROP_BAND_MARGIN_DP
 
