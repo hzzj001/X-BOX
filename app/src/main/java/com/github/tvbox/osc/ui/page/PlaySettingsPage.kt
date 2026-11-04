@@ -35,6 +35,7 @@ import com.github.tvbox.osc.ui.components.SettingsOptionMenuRow
 import com.github.tvbox.osc.ui.components.SettingsSliderRow
 import com.github.tvbox.osc.ui.components.SettingsSwitchRow
 import com.github.tvbox.osc.ui.components.TopBarActionBox
+import com.github.tvbox.osc.util.DanmuHelper
 import com.github.tvbox.osc.util.HawkConfig
 import com.github.tvbox.osc.util.MusicSettings
 import kotlin.math.roundToInt
@@ -50,6 +51,7 @@ fun PlaySettingsScreen(onNavigateBack: () -> Unit, vm: SettingsViewModel = viewM
     var showPrewarmWarning by remember { mutableStateOf(false) }
     var sliderPreloadDuration by remember(state.preloadDuration) { mutableStateOf(state.preloadDuration) }
     var sliderCacheSize by remember(state.exoCacheSizeMb) { mutableStateOf(state.exoCacheSizeMb) }
+    var danmuOpen by remember { mutableStateOf(DanmuHelper.isOpen()) }
 
     val listState = rememberScrollState()
     AppTopBarScaffold(
@@ -201,6 +203,18 @@ fun PlaySettingsScreen(onNavigateBack: () -> Unit, vm: SettingsViewModel = viewM
                         onCheckedChange = {
                             MusicSettings.setAutoOpenPage(it)
                             vm.refresh()
+                        },
+                    )
+                }
+                SettingsCard(SettingsCardPosition.MIDDLE) {
+                    SettingsSwitchRow(
+                        title = "弹幕显示",
+                        leadingIconRes = R.drawable.ic_pref_danmu,
+                        subtitle = "关闭后播放时将不再显示弹幕",
+                        checked = danmuOpen,
+                        onCheckedChange = {
+                            danmuOpen = it
+                            DanmuHelper.setOpen(it)
                         },
                     )
                 }
