@@ -185,3 +185,4 @@ jobs:
           body_path: release_body.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+# force re-register after enabling Actions
