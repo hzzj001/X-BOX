@@ -1,6 +1,6 @@
 package com.github.tvbox.osc.ui.theme
 
-const val GLASS_BACKDROP_BAND_MARGIN_DP = 64
+const val GLASS_BACKDROP_BAND_MARGIN_DP = 44
 
 data class LiquidGlassConfig(
     val navbarEnabled: Boolean,
